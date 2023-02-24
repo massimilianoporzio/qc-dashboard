@@ -10,15 +10,17 @@ class SideMenuConstants {
   static const authPage = "auth";
 
   static List<String> sideMenuItems = [
-    overviewPage.sentenceCase,
-    driversPage.sentenceCase,
-    clientsPage.sentenceCase,
-    authPage.sentenceCase,
+    overviewPage,
+    driversPage,
+    clientsPage,
+    authPage,
   ];
 
-  static bool isActive(String itemName, String activeItem) =>
+  static bool isActive(
+          {required String itemName, required String activeItem}) =>
       activeItem == itemName;
-  static bool isHovering(String itemName, String hoverItem) =>
+  static bool isHovering(
+          {required String itemName, required String hoverItem}) =>
       hoverItem == itemName;
 
   static Widget returnIconFor(String itemName,
@@ -68,15 +70,18 @@ class SideMenuConstants {
     required String activeItem,
     required String hoverItem,
   }) {
-    if (!SideMenuConstants.isActive(itemName, activeItem)) {
+    if (!SideMenuConstants.isActive(
+        itemName: itemName, activeItem: activeItem)) {
       return Icon(
         icon,
         size: 22,
-        color: lightGray,
+        color: lightGrey,
       );
     }
     return Icon(icon,
-        color:
-            SideMenuConstants.isHovering(itemName, hoverItem) ? light : dark);
+        color: SideMenuConstants.isHovering(
+                itemName: itemName, hoverItem: hoverItem)
+            ? light
+            : Colors.white);
   }
 }

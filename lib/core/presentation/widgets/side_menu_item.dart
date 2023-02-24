@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qc_dashboard/core/presentation/helpers/responsiveness.dart';
-import 'package:qc_dashboard/core/presentation/widgets/menu_item.dart';
+
+import 'horizontal_menu_item.dart';
+import 'vertical_menu_item.dart';
 
 class SideMenuItem extends StatelessWidget {
   final String itemName;
@@ -14,9 +16,10 @@ class SideMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (ResponsiveWidget.isCustomScreen(context)) {
-      return MenuItem(itemName: itemName, onTap: onTap, isVertical: true); //ver
+    if (ResponsiveWidget.isSmallScreen(context)) {
+      return VerticalMenuItem(itemName: itemName, onTap: onTap); //ver
+    } else {
+      return HorizontalMenuItem(itemName: itemName, onTap: onTap); //hor
     }
-    return MenuItem(itemName: itemName, onTap: onTap, isVertical: false); //hor
   }
 }

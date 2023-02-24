@@ -40,12 +40,12 @@ class SideMenu extends StatelessWidget {
                         width: 18,
                       ),
                     ),
-                    Flexible(
+                    const Flexible(
                       child: CustomText(
-                        text: "QC",
+                        text: "QC Settimanali",
                         size: 20,
                         weight: FontWeight.bold,
-                        color: activeDark,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(
@@ -53,42 +53,44 @@ class SideMenu extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Divider(
-                  color: lightGray.withOpacity(0.1),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: SideMenuConstants.sideMenuItems
-                      .map((itemName) => SideMenuItem(
-                            itemName: itemName == SideMenuConstants.authPage
-                                ? 'Log Out'
-                                : itemName,
-                            onTap: () {
-                              if (itemName == SideMenuConstants.authPage) {
-                                //TODO: logout and go to auth page
-                                context.read<MenuCubit>().changeActiveItemsTo(
-                                    itemName.toLowerCase());
-                              }
-                              if (!SideMenuConstants.isActive(
-                                  //se attivo anche se ci riclicco non cambio pagina
-                                  itemName,
-                                  activeItem)) {
-                                context.read<MenuCubit>().changeActiveItemsTo(
-                                    itemName.toLowerCase());
-                                if (ResponsiveWidget.isSmallScreen(context)) {
-                                  Get.back();
-                                  //TODO: go to item route
-                                }
-                              }
-                            },
-                          ))
-                      .toList(),
-                )
               ],
-            )
+            ),
+          const SizedBox(
+            height: 40,
+          ),
+          Divider(
+            color: lightGrey.withOpacity(0.1),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: SideMenuConstants.sideMenuItems
+                .map((itemName) => SideMenuItem(
+                      itemName: itemName == SideMenuConstants.authPage
+                          ? 'Log Out'
+                          : itemName,
+                      onTap: () {
+                        if (itemName == SideMenuConstants.authPage) {
+                          //TODO: logout and go to auth page
+                          context
+                              .read<MenuCubit>()
+                              .changeActiveItemsTo(itemName.toLowerCase());
+                        }
+                        if (!SideMenuConstants.isActive(
+                            //se attivo anche se ci riclicco non cambio pagina
+                            itemName: itemName,
+                            activeItem: activeItem)) {
+                          context
+                              .read<MenuCubit>()
+                              .changeActiveItemsTo(itemName.toLowerCase());
+                          if (ResponsiveWidget.isSmallScreen(context)) {
+                            Get.back();
+                            //TODO: go to item route
+                          }
+                        }
+                      },
+                    ))
+                .toList(),
+          )
         ],
       ),
     );

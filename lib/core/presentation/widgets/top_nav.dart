@@ -75,7 +75,7 @@ AppBar topNavigationAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
         Container(
           width: 1,
           height: 22,
-          color: lightGray,
+          color: lightGrey,
         ),
         const SizedBox(
           width: 24,
@@ -95,7 +95,7 @@ AppBar topNavigationAppBar(BuildContext context, GlobalKey<ScaffoldState> key) {
             margin: const EdgeInsets.all(2),
             child: CircleAvatar(
               maxRadius: isSmallScreen ? 12 : 16,
-              backgroundColor: lightGray,
+              backgroundColor: lightGrey,
               child: Icon(
                 Icons.person_outline,
                 color: Colors.white,
