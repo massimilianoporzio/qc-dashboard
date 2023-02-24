@@ -40,10 +40,10 @@ class SideMenu extends StatelessWidget {
                         width: 18,
                       ),
                     ),
-                    const Flexible(
+                    Flexible(
                       child: CustomText(
                         text: "QC Settimanali",
-                        size: 20,
+                        size: ResponsiveWidget.isSmallScreen(context) ? 16 : 20,
                         weight: FontWeight.bold,
                         color: Colors.white,
                       ),

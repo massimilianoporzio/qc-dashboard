@@ -18,8 +18,10 @@ class SiteLayout extends StatelessWidget {
         key: scaffoldKey,
         backgroundColor: dark,
         appBar: topNavigationAppBar(context, scaffoldKey),
-        drawer: const Drawer(
-          child: SideMenu(),
+        drawer: Drawer(
+          backgroundColor: Colors.transparent,
+          width: MediaQuery.of(context).size.width * .3,
+          child: const SideMenu(),
         ),
         body: const ResponsiveWidget(
           largeScreen: LargeScreen(),
