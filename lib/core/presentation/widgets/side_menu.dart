@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:qc_dashboard/core/presentation/controllers/navigation_controller.dart';
 import 'package:qc_dashboard/core/presentation/cubit/menu_cubit.dart';
 import 'package:qc_dashboard/core/presentation/helpers/responsiveness.dart';
 import 'package:qc_dashboard/core/presentation/themes/colors.dart';
 import 'package:qc_dashboard/core/utils/side_menu_constants.dart';
 
+import '../../services/service_locator.dart';
 import 'custom_text.dart';
 import 'side_menu_item.dart';
 
@@ -86,6 +88,7 @@ class SideMenu extends StatelessWidget {
                             Get.back();
                             //TODO: go to item route
                           }
+                          sl<NavigationController>().navigateTo(itemName);
                         }
                       },
                     ))
